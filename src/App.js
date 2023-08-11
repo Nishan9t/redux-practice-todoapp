@@ -1,11 +1,15 @@
 
 import { Container } from 'react-bootstrap';
 import './App.css';
+import AddTodo from './components/AddTodo';
+import DisplayTodo from './components/DisplayTodo';
 
 function App() {
   return (
-   <Container>
-    <h1>this is testing</h1>
+   <Container className='p-3'>
+    <AddTodo/>
+    <DisplayTodo/>
+
    </Container>
   );
 }
