@@ -1,6 +1,7 @@
 
 import React, { useState } from 'react';
 import {Container,Row,Col,Card,Form,Button} from 'react-bootstrap'
+import DisplayCount from './DisplayCount';
 
 const AddTodo = () => {
 
@@ -32,6 +33,9 @@ const AddTodo = () => {
                     <Card className="shadow-sm">
                         <Card.Body>
                             <h3>Add Todo here!!</h3>
+
+                            {/* to show todos count */}
+                            <DisplayCount/>
 
                             {/* form */}
                             <Form onSubmit={handleSubmit}>

@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import {Container,Row,Col,Card,ListGroup} from 'react-bootstrap'
+import DisplayCount from './DisplayCount'
 
 const DisplayTodo = () => {
 
@@ -24,6 +25,8 @@ const DisplayTodo = () => {
                 <Card className='mt-3 shadow-sm'>
                     <Card.Body>
                         <h3> all todos are here</h3>
+
+                        <DisplayCount/>
                         {
                             todos.map((todo,index)=>(
 
