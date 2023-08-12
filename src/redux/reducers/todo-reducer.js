@@ -32,7 +32,7 @@ export default (state=initialState,action)=>{
         case UPDATE_TODO:
             //update todo
             const updatedState=state.map(todo=>{
-                if(todo.id==action.payload.todoId)
+                if(todo.id===action.payload.todoId)
                 {
                     todo.title=action.payload.todo.title
                     todo.description=action.payload.todo.description

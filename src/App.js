@@ -3,14 +3,19 @@ import { Container } from 'react-bootstrap';
 import './App.css';
 import AddTodo from './components/AddTodo';
 import DisplayTodo from './components/DisplayTodo';
+import { Provider } from 'react-redux';
+import store from './redux/store';
 
 function App() {
   return (
-   <Container className='p-3'>
-    <AddTodo/>
-    <DisplayTodo/>
+    <Provider store={store}>
+       <Container className='p-3'>
+        <AddTodo/>
+        <DisplayTodo/>
 
-   </Container>
+      </Container>
+    </Provider>
+  
   );
 }
 
