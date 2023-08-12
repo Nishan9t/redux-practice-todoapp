@@ -24,6 +24,7 @@ export default (state=initialState,action)=>{
     {
         case ADD_TODO:
             //add todo
+            console.log("adding todo")
             return [...state,action.payload]
         case DELETE_TODO:
             //delete todo

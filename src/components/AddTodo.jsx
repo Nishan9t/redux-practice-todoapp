@@ -2,8 +2,10 @@
 import React, { useState } from 'react';
 import {Container,Row,Col,Card,Form,Button} from 'react-bootstrap'
 import DisplayCount from './DisplayCount';
+import {addTodo} from '../redux/actions/todo'
+import { connect } from 'react-redux';
 
-const AddTodo = () => {
+const AddTodo = ({addTodo}) => {
 
 
     //binding
@@ -15,6 +17,7 @@ const AddTodo = () => {
     const handleSubmit=(e)=>{
         e.preventDefault()
         //add todo in store
+        addTodo(todo)
         console.log(todo);
 
         //after adding
@@ -73,4 +76,13 @@ const AddTodo = () => {
   )
 }
 
-export default AddTodo
+//before exporting we have to map the addTodo in our prop to reducer funtion
+const mapStateToProps=(state)=>({})
+
+const mapDispatchToProps=(dispatch)=>({
+    //addTodo(todo) is action in actions of redux
+    addTodo:(todo)=>(dispatch(addTodo(todo)))
+})
+
+//connecting react with redux
+export default connect(mapStateToProps,mapDispatchToProps)(AddTodo)

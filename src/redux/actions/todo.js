@@ -1,4 +1,4 @@
-import { ADD_TODO, UPDATE_TODO } from "./action-types"
+import { ADD_TODO, DELETE_TODO, UPDATE_TODO } from "./action-types"
 
 //addtodo action
 export const addTodo=(todo)=>({
