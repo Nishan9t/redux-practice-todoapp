@@ -4,6 +4,7 @@ import {Container,Row,Col,Card,Form,Button} from 'react-bootstrap'
 import DisplayCount from './DisplayCount';
 import {addTodo} from '../redux/actions/todo'
 import { connect } from 'react-redux';
+import { v4 } from 'uuid';
 
 const AddTodo = ({addTodo}) => {
 
@@ -11,14 +12,16 @@ const AddTodo = ({addTodo}) => {
     //binding
     const [todo,setTodo]=useState({
         title:'',
-        description:""
+        description:"",
+        id:''
     })
 
     const handleSubmit=(e)=>{
         e.preventDefault()
-        //add todo in store
-        addTodo(todo)
-        console.log(todo);
+        //add todo in store with id
+        
+        addTodo({...todo,id:v4()})
+        // console.log(todo);
 
         //after adding
         setTodo({

@@ -1,11 +1,12 @@
 import React, { useState } from 'react'
-import {Container,Row,Col,Card,ListGroup} from 'react-bootstrap'
+import {Container,Row,Col,Card,ListGroup, Button} from 'react-bootstrap'
 import DisplayCount from './DisplayCount'
 import { connect } from 'react-redux'
+import { deleteTodo } from '../redux/actions/todo'
 
 
 //todos is todo inside state
-const DisplayTodo = ({todos}) => {
+const DisplayTodo = ({todos,deleteTodo}) => {
 
 
    
@@ -24,6 +25,7 @@ const DisplayTodo = ({todos}) => {
                                 <ListGroup.Item key={index}>
                                 <h4>{todo.title}</h4>
                                 <p>{todo.description}</p>
+                                <Button onClick={event=>deleteTodo(todo.id)} variant='danger' size="small">Delete</Button>
                                 </ListGroup.Item>
                             )
 
@@ -45,6 +47,8 @@ const mapStateToProps=(state)=>{
 }
 
 //to call reducer function
-const mapDispatchToProps=(dispatch)=>({})
+const mapDispatchToProps=(dispatch)=>({
+    deleteTodo:(id)=>(dispatch(deleteTodo(id)))
+})
 
 export default connect(mapStateToProps,mapDispatchToProps)(DisplayTodo)
