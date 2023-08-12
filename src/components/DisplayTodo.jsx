@@ -1,23 +1,14 @@
 import React, { useState } from 'react'
 import {Container,Row,Col,Card,ListGroup} from 'react-bootstrap'
 import DisplayCount from './DisplayCount'
+import { connect } from 'react-redux'
 
-const DisplayTodo = () => {
 
-    const [todos,setTodos]=useState([
-        {
-        title:'first title',
-        description:"first desc"
-         },
-        {
-        title:'second title',
-        description:"second desc"
-         },
-        {
-        title:'third title',
-        description:"third desc"
-         }
-        ])
+//todos is todo inside state
+const DisplayTodo = ({todos}) => {
+
+
+   
   return (
     <Container>
         <Row>
@@ -46,4 +37,14 @@ const DisplayTodo = () => {
   )
 }
 
-export default DisplayTodo
+
+const mapStateToProps=(state)=>{
+    //todoReducer is send by the store 
+    // console.log(state.todoReducer)
+    return {todos:state.todoReducer}
+}
+
+//to call reducer function
+const mapDispatchToProps=(dispatch)=>({})
+
+export default connect(mapStateToProps,mapDispatchToProps)(DisplayTodo)
